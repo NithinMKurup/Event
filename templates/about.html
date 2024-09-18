@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us | JP EVENTS{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'media/css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container about-section">
+        <div class="about-header text-center">
+            <h1>About Us</h1>
+            <p>Welcome to JP EVENTS, your go-to source for unforgettable experiences.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Our Story</h2>
+                <p>At JP EVENTS, we are passionate about creating memorable events that leave a lasting impression. Founded in 2024, our company has grown from a small event planning team to a full-service event management company. We take pride in our attention to detail and our ability to bring our clients' visions to life.</p>
+                <p>Our team of dedicated professionals is committed to delivering exceptional service, whether it's a corporate event, a wedding, or a private party. We work closely with our clients to ensure every aspect of their event is handled with care and precision.</p>
+            </div>
+            <div class="col-md-6">
+                <h2>Our Values</h2>
+                <ul>
+                    <li><strong>Excellence:</strong> We strive for perfection in everything we do.</li>
+                    <li><strong>Creativity:</strong> We bring innovative ideas to every event.</li>
+                    <li><strong>Integrity:</strong> We operate with honesty and transparency.</li>
+                    <li><strong>Customer Focus:</strong> We prioritize our clients’ needs and satisfaction.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="team-member-section">
+            <h2 class="text-center">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-md-4 team-member text-center">
+                    <img src="https://media.licdn.com/dms/image/D5603AQHl4MZ8kAHl_g/profile-displayphoto-shrink_200_200/0/1707331379675?e=2147483647&v=beta&t=R-GyHsIE9FYhLmV6FB1moMiLk5OlJG2IurfbVj7__UI" alt="Team Member" class="img-fluid">
+                    <h4>Emon Musk</h4>
+                    <p>Event Planner</p>
+                </div>
+                <div class="col-md-4 team-member text-center">
+                    <img src="https://media.licdn.com/dms/image/D5603AQGVyt0idW8OLQ/profile-displayphoto-shrink_200_200/0/1707958384799?e=2147483647&v=beta&t=8sXEOwQdXVjrpKZP-DJE15ROFHJxxXsQgyMk7EsVv2k" alt="Team Member" class="img-fluid">
+                    <h4>Nithin M Kurup</h4>
+                    <p>Creative Director</p>
+                </div>
+                <div class="col-md-4 team-member text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoHPT0uv3YDdNw-6xJadPBz-e80E07b-DMGg&s" alt="Team Member" class="img-fluid">
+                    <h4>Haritha Krishnan</h4>
+                    <p>Managing Director</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

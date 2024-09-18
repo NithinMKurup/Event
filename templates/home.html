@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | JP EVENTS{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'media/css/homestyle.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to JP EVENTS</h1>
+            <p>We create unforgettable experiences for all your special moments.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Explore Our Events</a>
+        </div>
+    </div>
+
+    <div class="container features">
+        <div class="row">
+            {% for item in welcome_items %}
+            <div class="col-md-4 welcome-item">
+                <div class="card shadow-sm mb-4">
+                    <img src="{{ item.img.url }}" class="card-img-top" alt="{{ item.name }}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ item.name }}</h3>
+                        <p class="card-text"><strong>Venue:</strong> {{ item.venue }}</p>
+                        <p class="card-text"><strong>Date:</strong> {{ item.date }}</p>
+                        <p class="card-text"><strong>Description:</strong> {{ item.description }}</p>
+                        <p class="card-text"><strong>Count:</strong> {{ item.count }}</p>
+                        
+                            <p class="text-muted">Register or Login to book your tickets</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-primary btn-block" onclick="window.location.href='{% url 'register' %}'">Register</button>
+                                <button class="btn btn-secondary btn-block" onclick="window.location.href='{% url 'login' %}'">Login</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h1>Events</h1>
+        </div>
+    <div class="container features">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Event Planning</h3>
+                <p>From concept to execution, we handle all aspects of event planning to ensure your event runs smoothly.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-location-arrow"></i>
+                </div>
+                <h3>Venue Selection</h3>
+                <p>We help you find the perfect venue that fits your style and budget.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>Personalized Touch</h3>
+                <p>We add personalized touches to make your event unique and memorable.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <div class="container">
+            <h2>Ready to Plan Your Next Event?</h2>
+            <p>Contact us today to start planning your next unforgettable event!</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get in Touch</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JP EVENTS. All rights reserved.</p>
+    </footer>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+{% endblock %}

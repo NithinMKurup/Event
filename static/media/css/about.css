@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://img.freepik.com/premium-vector/event-management-wedding-planner-manager-planning-event-conference-party_501813-2157.jpg?w=996'); /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff; /* Adjust text color for better readability */
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.about-section {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.5); /* Optional: dark overlay for better text readability */
+}
+.about-header {
+    margin-bottom: 30px;
+}
+.team-member {
+    margin-bottom: 30px;
+}
+.team-member img {
+    border-radius: 50%;
+}
+.team-member h4 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.team-member p {
+    color: #ddd; /* Adjust text color for better readability */
+}
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: semi-transparent footer background */
+}
+

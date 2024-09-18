@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Admin Events | JP EVENTS{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'media/css/adminevents.css' %}">
+    <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('event_date').setAttribute('min', today);
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('closing_date').setAttribute('min', today);
+        });
+
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Admin - Manage Events</h1>
+
+        <!-- Display Events List -->
+        <h2>Current Events</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Venue</th>
+                    <th>Date</th>
+                    <th>Rate</th>
+                    <th>Tickets Available</th> <!-- Added Tickets Available Column -->
+                    <th>Booking Closes On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td><img src="{{ event.img.url }}" alt="{{ event.name }}" class="img-thumbnail"></td>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.venue }}</td>
+                    <td>{{ event.Date }}</td>
+                    <td>{{ event.rate }}</td>
+                    <td>{{ event.tickets_count }}</td> <!-- Display Tickets Count -->
+                    <td>{{ event.Booking_Closes_on }}</td>
+                    <td>
+                        <!-- Link to Modify Event Page -->
+                        <a href="{% url 'modify_event' event.id %}" class="btn btn-warning">Modify Event</a>
+
+                        <!-- Delete Event Form -->
+                        <form method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="event_id" value="{{ event.id }}">
+                            <button type="submit" name="delete_event" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Add Event Form -->
+        <div class="container">
+            <h2>Add New Event</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" name="add_event">Add Event</button>
+            </form>
+        </div>            <!-- Display error message if any -->
+        {% if messages %}
+            <div class="mt-4">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+{% endblock %}

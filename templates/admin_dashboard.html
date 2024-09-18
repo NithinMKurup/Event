@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Admin Dashboard | JP EVENTS{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'media/css/admindb.css' %}">
+{% endblock %}
+
+{% block content %}
+ <div class="hero">
+        <div class="container">
+            <h1>JP EVENTS</h1>
+            <p>Manage Your events</p>
+            <a href="{% url 'admin_events' %}" class="btn btn-primary btn-lg">Events</a>
+        </div>
+    </div>
+
+    <div class="container features">
+        <div class="row">
+            {% for item in welcome_items %}
+            <div class="col-md-4 welcome-item">
+                <img src="{{ item.img.url }}" alt="{{ item.name }}">
+                <h3>{{ item.name }}</h3>
+                <p><strong>Venue:</strong> {{ item.venue }}</p>
+                <p><strong>Date:</strong> {{ item.date }}</p>
+                <p><strong>Description:</strong> {{ item.description }}</p>
+                <p><strong>Count:</strong> {{ item.count }}</p>
+                <p>Register or Login to book your tickets</p>
+                <button class="btn btn-primary" onclick="redirectToPage()">Register</button>
+                <button class="btn btn-primary" onclick="redirectToPage1()">Login</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function redirectToPage() {
+            window.location.href = "{% url 'register' %}"; 
+        }
+        function redirectToPage1() {
+            window.location.href = "{% url 'login' %}"; 
+        }
+    </script>
+
+    <div class="container features">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Event Planning</h3>
+                <p>From concept to execution, we handle all aspects of event planning to ensure your event runs smoothly.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-location-arrow"></i>
+                </div>
+                <h3>Venue Selection</h3>
+                <p>We help you find the perfect venue that fits your style and budget.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>Personalized Touch</h3>
+                <p>We add personalized touches to make your event unique and memorable.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <div class="container">
+            <h2>Ready to Plan Your Next Event?</h2>
+            <p>Contact us today to start planning your next unforgettable event!</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get in Touch</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JP EVENTS. All rights reserved.</p>
+    </footer>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+{% endblock %}

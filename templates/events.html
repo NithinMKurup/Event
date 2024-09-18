@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Events | JP EVENTS{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'media/css/eventview.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Upcoming Events</h1>
+
+    <!-- Display Events List -->
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Venue</th>
+                    <th>Event Date</th>
+                    <th>Rate</th>
+                    <th>Available Tickets</th>
+                    <th>Booking Closes On</th>
+                    <th>Action</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td><img src="{{ event.img.url }}" alt="{{ event.name }}" width="100"></td>
+                        <td>{{ event.name }}</td>
+                        <td>{{ event.venue }}</td>
+                        <td>{{ event.Date }}</td>
+                        <td>{{ event.rate }}</td>
+                        <td>{{ event.tickets_count }}</td>
+                        <td>{{ event.Booking_Closes_on }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'booking' event.id %}'">
+                                Book Now
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

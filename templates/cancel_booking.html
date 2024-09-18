@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Bookings | JP EVENTS{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'media/css/booking.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-4">Confirm Cancellation</h1>
+    <div class="alert alert-warning text-center">
+        <p>Are you sure you want to cancel this booking?</p>
+        <form action="{% url 'process_cancellation' booking_id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a href="{% url 'my_bookings' %}" class="btn btn-secondary">No</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

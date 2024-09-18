@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | JP Events</title>
+    <link rel="stylesheet" href="{% static 'media/css/stylelog.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+                <li>Welcome, {{ user.username }}</li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'register' %}">SignUp</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="background-edit">
+        <label for="bg-color-picker">Change Background:</label>
+        <input type="color" id="bg-color-picker">
+    </div>
+
+    <div class="container">
+        <div class="login-container">
+            <h1>Login</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            {% if form.non_field_errors %}
+                <div class="error">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Script to handle background color change
+        const bgColorPicker = document.getElementById('bg-color-picker');
+        bgColorPicker.addEventListener('input', function() {
+            document.body.style.backgroundColor = bgColorPicker.value;
+        });
+    </script>
+</body>
+</html>

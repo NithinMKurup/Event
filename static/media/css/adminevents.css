@@ -1,0 +1,127 @@
+body {
+    padding-top: 56px; /* Adjusted for fixed navbar */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa; /* Light grey background for better contrast */
+    color: #343a40; /* Dark grey text color */
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    font-weight: 700; /* Bolder headings */
+    color: #495057; /* Slightly softer heading color */
+    text-align: center; /* Center the headings */
+    text-transform: uppercase; /* Make headings uppercase */
+}
+
+.table img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for images */
+    transition: transform 0.3s ease-in-out; /* Smooth scaling on hover */
+}
+
+.table img:hover {
+    transform: scale(1.1); /* Slightly enlarge image on hover */
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #495057; /* Consistent color with headings */
+    font-size: 1rem;
+    letter-spacing: 0.5px; /* Subtle letter spacing */
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete {
+    color: #dc3545; /* Bootstrap red for consistency */
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.delete:hover {
+    color: #c82333; /* Darker red on hover */
+}
+
+.add {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.add:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+}
+
+.add:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5); /* Focus ring for accessibility */
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    border-radius: 4px;
+    border: 1px solid #ced4da; /* Light border for inputs */
+    padding: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: #80bdff; /* Bootstrap blue */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Subtle blue glow */
+    outline: none;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555555;
+}
+
+input[type="text"], input[type="date"], input[type="file"], textarea, select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}

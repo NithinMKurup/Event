@@ -1,0 +1,62 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{% static 'media/images/background.jpg' %}") no-repeat center center fixed;
+    background-size: cover;
+    color: #000000; /* Changed to black */
+}
+
+.container {
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    color: #020000; /* Changed to black */
+}
+
+h1 {
+    color: #000000; /* Changed to black */
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    color: #000000; /* Changed to black */
+}
+
+.form-actions {
+    text-align: center;
+    color: #000000; /* Changed to black */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    color: #000000; /* Ensure button text is black */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: #000000; /* Ensure button text is black */
+}
+
+/* Additional custom styles for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        color: #000000; /* Ensure button text is black */
+    }
+}

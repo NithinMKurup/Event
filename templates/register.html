@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | JP Events</title>
+    <link rel="stylesheet" href="{% static 'media/css/stylereg.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+                <li>Welcome, {{ user.username }}</li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'register' %}">SignUp</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="background-edit">
+        <label for="bg-color-picker">Change Background:</label>
+        <input type="color" id="bg-color-picker">
+    </div>
+
+    <div class="container">
+        <div class="title">Registration</div>
+        <div class="content">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="user-details">
+                    <div class="input-box">
+                        <label>User Name:</label>
+                        <input type="text" name="username" required>
+                    </div>
+                    <div class="input-box">
+                        <label>E-Mail ID:</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="input-box">
+                        <label>Password:</label>
+                        <input type="password" name="password" required>
+                    </div>
+                    <div class="input-box">
+                        <label>Confirm Password:</label>
+                        <input type="password" name="confirmpassword" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" name="submit" value="SignUp">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Script to handle background color change
+        const bgColorPicker = document.getElementById('bg-color-picker');
+        bgColorPicker.addEventListener('input', function() {
+            document.body.style.backgroundColor = bgColorPicker.value;
+        });
+    </script>
+</body>
+</html>

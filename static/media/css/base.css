@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://img.freepik.com/premium-vector/event-management-wedding-planner-manager-planning-event-conference-party_501813-2157.jpg?w=996'); /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff; /* Adjust text color for better readability */
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.about-section {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.5); /* Optional: dark overlay for better text readability */
+}
+.about-header {
+    margin-bottom: 30px;
+}
+.team-member {
+    margin-bottom: 30px;
+}
+.team-member img {
+    border-radius: 50%;
+}
+.team-member h4 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.team-member p {
+    color: #ddd; /* Adjust text color for better readability */
+}
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: semi-transparent footer background */
+}
+.logout-btn {
+    color: #f8f9fa; /* Light color for text */
+    background-color: #dc3545; /* Bootstrap danger color for background */
+    border: 1px solid #dc3545; /* Same color for border */
+    border-radius: 0.25rem; /* Rounded corners */
+    padding: 0.375rem 0.75rem; /* Padding for the button */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.logout-btn:hover {
+    color: #fff; /* Change text color on hover */
+    background-color: #c82333; /* Darker red background on hover */
+    border-color: #c82333; /* Darker red border on hover */
+}
+
+.logout-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5); /* Outline shadow on focus */
+}

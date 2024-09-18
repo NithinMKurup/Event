@@ -1,0 +1,54 @@
+body {
+    background-image: url('https://img.freepik.com/premium-vector/event-management-wedding-planner-manager-planning-event-conference-party_501813-2157.jpg?w=996'); /* Replace with your background image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.contact-form, .contact-info {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.contact-form h3, .contact-info h3 {
+    color: #ffc107;
+}
+
+.form-control, .btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ffc107;
+}
+
+.btn-primary {
+    background-color: #ffc107;
+    color: #000;
+    border-color: #ffc107;
+}
+
+.btn-primary:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+footer p {
+    margin: 0;
+}
+
+h1.my-4 {
+    color: #ffc107;
+}

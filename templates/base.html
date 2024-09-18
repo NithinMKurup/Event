@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}JP EVENTS{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'media/css/base.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">JP EVENTS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <!-- Tabs for all pages except Logout -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        <!-- Superuser specific tabs -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="superuserDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Admin Menu
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="superuserDropdown">
+                                <li><a class="dropdown-item" href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+                                <li><a class="dropdown-item" href="{% url 'admin_events' %}">Manage Events</a></li>
+                                <li><a class="dropdown-item" href="{% url 'manage_booking' %}">Manage Booking</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <!-- Normal user specific tabs -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'events' %}">Events</a>
+                        </li>
+                        {% if event %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'booking' event.id %}">Book Your Tickets</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'mybooking' %}">My Tickets</a>
+                        </li>
+                    {% endif %}
+                    <!-- Display username -->
+                    <li class="nav-item">
+                        <span class="navbar-text text-light">
+                            Welcome, {{ user.username }}!
+                        </span>
+                    </li>
+                {% else %}
+                    <!-- Tabs for users not logged in -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+            <!-- Logout button aligned to the right -->
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </nav>    
+    <div class="container">
+        {% block content %}
+        <!-- Page-specific content will go here -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer can be added here -->
+    <footer class="text-center py-4">
+        <p>&copy; 2024 JP EVENTS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

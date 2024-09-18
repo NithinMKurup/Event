@@ -1,0 +1,42 @@
+/* managebk.css */
+
+/* General container styling */
+.manage-bookings-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+.manage-bookings-container h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* List group item customization */
+.booking-item {
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.booking-item:hover {
+    background-color: #e9ecef;
+    transform: translateY(-3px);
+}
+
+/* Customer name styling */
+.booking-item strong {
+    font-size: 1.2rem;
+    color: #6fb66d;
+}
+
+/* Event name and date styling */
+.booking-item .text-muted {
+    font-size: 0.9
+}

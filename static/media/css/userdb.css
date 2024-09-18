@@ -1,0 +1,36 @@
+.hero {
+    background: url('https://via.placeholder.com/1920x600') no-repeat center center;
+    background-size: cover;
+    color: rgb(114, 70, 70);
+    text-align: center;
+    padding: 100px 0;
+}
+.features {
+    padding: 60px 0;
+}
+.feature-icon {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+.cta {
+    background-color: #ffffff;
+    padding: 60px 0;
+    text-align: center;
+}
+.cta button {
+    margin-top: 20px;
+}
+footer {
+    background-color: #91a2b3;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+.welcome-item {
+    margin-bottom: 30px;
+}
+.welcome-item img {
+    max-width: 100%;
+    height: auto;
+}
